@@ -23,8 +23,8 @@ class LoginFactory extends Factory
     public function definition()
     {
         return [
-            'users' => fake()->words(rand(1,5),true),
-            'password' => fake()->words(rand(1,5),true),
+            'users' => "valeluly",
+            'password' => "1234",
         ];
     }
 }
