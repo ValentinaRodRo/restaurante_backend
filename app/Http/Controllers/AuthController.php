@@ -17,7 +17,9 @@ class AuthController extends Controller
 
         // Realizar la lógica de autenticación
         $usuarioAutenticado = Login::where('users', $username)->where('password', $password)->first();
-
+        return response()->json(['user' => $username, 
+      "pAS" =>$password, "autenticado"=>$usuarioAutenticado],
+        , 200);
         if ($usuarioAutenticado) {
             // El usuario está autorizado
             return response()->json(['message' => 'Autenticación exitosa'], 200);
