@@ -19,7 +19,7 @@ class LoginTableSeeder extends Seeder
     public function run()
     {
         // Usar el factory para crear un usuario
-        Login::factory(1)->create([
+        Login::factory(10)->create([
             'users' => 'valeluly',
             'password' => bcrypt('9876'),
         ]);
