@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Login;
 
-class LoginSeeder extends Seeder
+class LoginTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,10 @@ class LoginSeeder extends Seeder
      */
     public function run()
     {
-        // Agregar un usuario de ejemplo
-        Login::create([
+        // Usar el factory para crear un usuario
+        Login::factory()->create([
             'users' => 'valeluly',
             'password' => bcrypt('9876'),
         ]);
-
-        // Puedes agregar más usuarios si lo deseas
     }
 }
