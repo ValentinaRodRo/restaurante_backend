@@ -16,7 +16,7 @@ class AuthController extends Controller
         $password = $request->input('PW');
 
         // Realizar la lógica de autenticación
-        $usuarioAutenticado = Login::where('username', $users)->where('password', $password)->first();
+        $usuarioAutenticado = Login::where('users', $username)->where('password', $password)->first();
 
         if ($usuarioAutenticado) {
             // El usuario está autorizado
