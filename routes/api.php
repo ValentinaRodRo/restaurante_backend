@@ -30,4 +30,3 @@ Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus']);
 Route::get('/orders/user/{identifier}', [OrderController::class, "getOrdersByUser"]);
 Route::put('/orders/{id}/updateEstado', [OrderController::class, "updateEstado"]);
 Route::post('/login',[AuthController::class,"autenticar"]);
-Route::post('/create',[AuthController::class,"createuser"]);
