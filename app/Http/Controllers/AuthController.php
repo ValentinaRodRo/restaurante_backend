@@ -3,27 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Login;
 
 class AuthController extends Controller
 {
-    public function autenticar(Request $request)
+    public function  autenticar(Request $request)
     {
-        $request->header('Access-Control-Allow-Origin', '*');
+      $request->header('Access-Control-Allow-Origin', '*');
 
-        // Obtener datos del formulario
-        $username = $request->input('USER');
-        $password = $request->input('PW');
+        //echo json_encode($_SERVER, JSON_PRETTY_PRINT);
+        //die();
 
-        // Realizar la lógica de autenticación
-        $usuarioAutenticado = Login::where('users', $username)->where('password', $password)->first();
-        
-        if ($usuarioAutenticado) {
-            // El usuario está autorizado
-            return response()->json(['message' => 'Autenticación exitosa'], 200);
-        } else {
-            // El usuario no está autorizado
-            return response()->json(['message' => 'Credenciales incorrectas'], 401);
+        $usser = $_SERVER["PHP_AUTH_USER"];
+        $password = $_SERVER["PHP_AUTH_PW"];
+
+
+        if($usser == "tomas" || $password == 07100)
+        {
+            return response()->json("Esta autorizado");
         }
+        else
+        {
+            return response()->json("NO esta autorizado error-403");
+        }
+        
+    }
+
+    public function  createuser(Request $request)
+    {
+      $request->header('Access-Control-Allow-Origin', '*');
+
+        //echo json_encode($_SERVER, JSON_PRETTY_PRINT);
+        //die();
+
+        $usser = $_SERVER["PHP_AUTH_USER"];
+        $password = $_SERVER["PHP_AUTH_PW"];
+
+
+        if($usser == "tomas" || $password == 07100)
+        {
+            return response()->json("Esta autorizado");
+            
+        }
+        else
+        {
+            return response()->json("NO esta autorizado error-403");
+        }
+        
     }
 }
